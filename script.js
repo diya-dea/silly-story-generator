@@ -1,27 +1,33 @@
-const stories = [
-  "The {adjective} {noun} {verb} over the {adjective} moon.",
-  "A {noun} and a {noun} walked into a {place}... it was {adjective}!"
-];
-
-const words = {
-  adjective: ["crazy", "sparkly", "giant", "smelly"],
-  noun: ["unicorn", "taco", "robot", "banana"],
-  verb: ["danced", "flew", "exploded", "sang"],
-  place: ["library", "beach", "volcano", "mall"]
-};
+document.getElementById('generateBtn').addEventListener('click', generateStory);
+document.getElementById('name').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    generateStory();
+  }
+});
 
 function generateStory() {
-  const randomStory = stories[Math.floor(Math.random() * stories.length)];
-  let story = randomStory;
-
-  // Replace placeholders with random words
-  story = story.replace(/{(\w+)}/g, (match) => {
-    const key = match.slice(1, -1); // Remove { and }
-    const randomWord = words[key][Math.floor(Math.random() * words[key].length)];
-    return randomWord;
-  });
-
-  document.getElementById("story").textContent = story;
+  const name = document.getElementById('name').value || 'a mysterious person';
+  
+  const stories = [
+    `${name} found a magic banana that could sing opera. The banana's high notes shattered all the windows in town.`,
+    `One day, ${name} was chased by a gang of angry squirrels demanding peanut butter. It was a nutty situation.`,
+    `${name} discovered that their pet goldfish was actually a secret agent working for the underwater mafia.`,
+    `While gardening, ${name} accidentally grew a pumpkin so big it needed its own zip code.`,
+    `${name} entered a staring contest with a statue and lost after 3 days when they blinked.`,
+    `To everyone's surprise, ${name} won the annual pancake flipping championship using only a spatula and pure determination.`,
+    `${name} woke up to find all their socks had gained consciousness and were demanding better living conditions.`,
+    `During a rainstorm, ${name} discovered the clouds were actually made of cotton candy. The neighborhood kids went wild.`,
+    `${name} befriended a lonely ghost in the attic, and together they started a successful podcast about the afterlife.`,
+    `The local zoo hired ${name} as a temporary penguin trainer, but things got awkward when the penguins started giving orders.`
+  ];
+  
+  const storyElement = document.getElementById('story');
+  storyElement.classList.remove('fade-in');
+  
+  setTimeout(() => {
+    const randomStory = stories[Math.floor(Math.random() * stories.length)];
+    storyElement.textContent = randomStory;
+    storyElement.classList.add('fade-in');
+  }, 10);
 }
-
-document.getElementById("generate").addEventListener("click", generateStory);
