@@ -1,13 +1,105 @@
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 2rem;
-  background: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
 }
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+#storyForm {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 button {
-  padding: 10px 20px;
-  background: #4CAF50;
-  color: white;
+  padding: 12px 24px;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+#generateBtn {
+  background: #28a745;
+  color: white;
+}
+
+#generateBtn:hover {
+  background: #218838;
+}
+
+#resetBtn {
+  background: #f8f9fa;
+  color: #212529;
+  border: 1px solid #ced4da;
+}
+
+#resetBtn:hover {
+  background: #e2e6ea;
+}
+
+#story {
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-left: 4px solid #28a745;
+  border-radius: 4px;
+  font-size: 17px;
+  min-height: 100px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
