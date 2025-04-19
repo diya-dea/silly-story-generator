@@ -4,14 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Silly Story Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 8px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    #story {
+      margin-top: 20px;
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Silly Story Generator</h1>
-    <p id="story">Click the button to generate a story!</p>
-    <button id="generate">Generate Story</button>
-  </div>
-  <script src="script.js"></script>
+  <h1>Silly Story Generator</h1>
+  <form id="storyForm">
+    <div class="form-group">
+      <label for="name">Enter a name:</label>
+      <input type="text" id="name" placeholder="e.g., Bob" class="form-control">
+    </div>
+    <button type="button" onclick="generateStory()">Generate Story</button>
+    <button type="reset">Reset</button>
+  </form>
+  <div id="story"></div>
+
+  <script>
+    function generateStory() {
+      const name = document.getElementById('name').value || 'a mysterious person';
+      
+      // Array of 5 different silly stories
+      const stories = [
+        `${name} found a magic banana that could sing opera. The banana's high notes shattered all the windows in town!`,
+        `One day, ${name} was chased by a gang of angry squirrels demanding peanut butter. It was nuts!`,
+        `${name} discovered that their pet goldfish was actually a secret agent working for the underwater mafia.`,
+        `While gardening, ${name} accidentally grew a pumpkin so big it needed its own zip code!`,
+        `${name} entered a staring contest with a statue... and lost after 3 days when they blinked.`
+      ];
+      
+      // Pick a random story
+      const randomStory = stories[Math.floor(Math.random() * stories.length)];
+      document.getElementById('story').textContent = randomStory;
+    }
+  </script>
 </body>
 </html>
